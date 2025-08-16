@@ -1,0 +1,812 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Visual Studio Code &#8212; Geographic Software Design</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../../_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../../_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+
+  
+  <link href="../../_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=fa44fd50" />
+    <link rel="stylesheet" type="text/css" href="../../_static/styles/sphinx-book-theme.css?v=a3416100" />
+    <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-design.min.css?v=95c83b7e" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="../../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+    <script src="../../_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="../../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../../_static/copybutton.js?v=f281be69"></script>
+    <script src="../../_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../../_static/togglebutton.js?v=4a39c7ea"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../../_static/design-tabs.js?v=f930bc37"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="../../_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'book/software/vscode';</script>
+    <link rel="canonical" href="https://geog-510.gishub.org/book/software/vscode.html" />
+    <link rel="icon" href="../../_static/fav.ico"/>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="Git" href="git.html" />
+    <link rel="prev" title="Overview" href="overview.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search..."
+         aria-label="Search..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../../index.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../../_static/logo.png" class="logo__image only-light" alt="Geographic Software Design - Home"/>
+    <script>document.write(`<img src="../../_static/logo.png" class="logo__image only-dark" alt="Geographic Software Design - Home"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">About</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../about/instructor.html">Instructor</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../about/syllabus.html">Syllabus</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../about/schedule.html">Schedule</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../about/textbooks.html">Textbooks</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../about/videos.html">Videos</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../about/acknowledgments.html">Acknowledgments</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Software Tools</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="overview.html">Overview</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Visual Studio Code</a></li>
+<li class="toctree-l1"><a class="reference internal" href="git.html">Git</a></li>
+<li class="toctree-l1"><a class="reference internal" href="miniconda.html">Miniconda</a></li>
+<li class="toctree-l1"><a class="reference internal" href="qgis.html">QGIS</a></li>
+<li class="toctree-l1"><a class="reference internal" href="markdown.html">Markdown</a></li>
+<li class="toctree-l1"><a class="reference internal" href="jupyterlab.html">JupyterLab</a></li>
+<li class="toctree-l1"><a class="reference internal" href="colab.html">Google Colab</a></li>
+<li class="toctree-l1"><a class="reference internal" href="cookiecutter.html">Cookiecutter</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Python Basics</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../python/01_get_started.html">1. Get Started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../python/02_variables.html">2. Variables and Data Types</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../python/03_data_structures.html">3. Data Structures</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../python/04_string_operations.html">4. String Operations</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../python/05_looping.html">5. Looping and Control Statements</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../python/06_functions_classes.html">6. Functions and Classes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../python/07_files.html">7. Files and Exception Handling</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../python/08_numpy_pandas.html">8. Intro to NumPy and Pandas</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Geospatial</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../geospatial/get_started.html">9. Get Started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../geospatial/geopandas.html">10. GeoPandas</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../geospatial/folium.html">11. Folium</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../geospatial/ipyleaflet.html">12. Ipyleaflet</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../geospatial/rasterio.html">13. Rasterio</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../geospatial/localtileserver.html">14. Localtileserver</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../geospatial/ipywidgets.html">15. Ipywidgets</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../geospatial/leafmap.html">16. Leafmap</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../geospatial/geemap.html">17. Geemap</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../geospatial/maplibre.html">18. MapLibre</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../geospatial/whitebox.html">19. Whitebox</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../geospatial/xarray.html">20. Xarray</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../geospatial/rioxarray.html">21. Rioxarray</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Labs</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../labs/instructions.html">Submission Instructions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../labs/lab_01.html">Lab 1</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../labs/lab_02.html">Lab 2</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../labs/lab_03.html">Lab 3</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../labs/lab_04.html">Lab 4</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../labs/lab_05.html">Lab 5</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../labs/lab_06.html"><strong>Lab 6</strong></a></li>
+<li class="toctree-l1"><a class="reference internal" href="../labs/lab_07.html">Lab 7</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../labs/lab_08.html">Lab 8</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../labs/lab_09.html">Lab 9</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../labs/lab_10.html">Lab 10</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../labs/final_project.html">Final Project Guidelines</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/giswqs/geog-510" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/giswqs/geog-510/edit/main/book/software/vscode.md" target="_blank"
+   class="btn btn-sm btn-source-edit-button dropdown-item"
+   title="Suggest edit"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-pencil-alt"></i>
+  </span>
+<span class="btn__text-container">Suggest edit</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/giswqs/geog-510/issues/new?title=Issue%20on%20page%20%2Fbook/software/vscode.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../../_sources/book/software/vscode.md" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.md</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Visual Studio Code</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#installation"><strong>Installation</strong></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#important-extensions-for-geospatial-development"><strong>Important Extensions for Geospatial Development</strong></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#vs-code-extension-packs"><strong>VS Code Extension Packs</strong></a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#example-microsoft-python-data-science-extension-pack">Example: <strong>Microsoft Python Data Science Extension Pack</strong></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#how-to-install">How to Install:</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#other-useful-extension-packs">Other Useful Extension Packs:</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#additional-useful-extensions"><strong>Additional Useful Extensions</strong></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#syncing-settings-and-extensions-with-github"><strong>Syncing Settings and Extensions with GitHub</strong></a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#steps-to-enable-settings-sync">Steps to Enable Settings Sync:</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#why-use-github-to-sync">Why Use GitHub to Sync?</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#essential-keyboard-shortcuts"><strong>Essential Keyboard Shortcuts</strong></a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#navigation">Navigation:</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#editing">Editing:</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#markdown-and-layout">Markdown and Layout:</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#other">Other:</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#references-for-keyboard-shortcuts"><strong>References for Keyboard Shortcuts</strong></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#tips-for-getting-started"><strong>Tips for Getting Started</strong></a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="visual-studio-code">
+<h1>Visual Studio Code<a class="headerlink" href="#visual-studio-code" title="Link to this heading">#</a></h1>
+<p><a class="reference external" href="https://code.visualstudio.com">Visual Studio Code</a> is a free, cross-platform source-code editor developed by Microsoft for Windows, Linux, and macOS. It’s lightweight, highly customizable, and packed with features to make coding efficient and enjoyable. Key features include:</p>
+<ul class="simple">
+<li><p><strong>Debugging</strong>: Identify and fix issues in your code directly within the editor.</p></li>
+<li><p><strong>Syntax Highlighting</strong>: Make your code easier to read and understand.</p></li>
+<li><p><strong>Intelligent Code Completion</strong>: Get smart suggestions based on your code.</p></li>
+<li><p><strong>Snippets</strong>: Quickly insert reusable pieces of code.</p></li>
+<li><p><strong>Code Refactoring</strong>: Simplify and restructure your code efficiently.</p></li>
+<li><p><strong>Built-in Git Integration</strong>: Manage version control seamlessly within the editor.</p></li>
+</ul>
+<p>VS Code also supports an extensive library of <strong>extensions</strong> to enhance functionality, allowing you to tailor the editor to meet your specific needs.</p>
+<hr class="docutils" />
+<section id="installation">
+<h2><strong>Installation</strong><a class="headerlink" href="#installation" title="Link to this heading">#</a></h2>
+<ol class="arabic simple">
+<li><p><strong>Download and Install</strong>: Visit the <a class="reference external" href="https://code.visualstudio.com/">Visual Studio Code website</a> and download the installer for your operating system (Windows, macOS, or Linux). Follow the installation instructions provided on the website.</p></li>
+<li><p><strong>Launch VS Code</strong>: After installation, open Visual Studio Code.</p></li>
+<li><p><strong>Verify Installation</strong>: Ensure that VS Code is installed correctly by checking the version. Open the terminal or command prompt and type <code class="docutils literal notranslate"><span class="pre">code</span> <span class="pre">--version</span></code>. You should see the installed version number.</p></li>
+</ol>
+</section>
+<section id="important-extensions-for-geospatial-development">
+<h2><strong>Important Extensions for Geospatial Development</strong><a class="headerlink" href="#important-extensions-for-geospatial-development" title="Link to this heading">#</a></h2>
+<p>These extensions are critical for Python and Jupyter-based geospatial workflows:</p>
+<ul class="simple">
+<li><p><strong><a class="reference external" href="https://marketplace.visualstudio.com/items?itemName=ms-python.python">Python</a></strong>: Essential for Python development, offering linting, debugging, and IntelliSense.</p></li>
+<li><p><strong><a class="reference external" href="https://marketplace.visualstudio.com/items?itemName=ms-toolsai.jupyter">Jupyter</a></strong>: Enables seamless integration with Jupyter notebooks, letting you write, run, and debug notebooks within VS Code.</p></li>
+<li><p><strong><a class="reference external" href="https://github.com/features/copilot">GitHub Copilot</a></strong>: AI-powered code completion for productivity boosts.</p></li>
+</ul>
+</section>
+<hr class="docutils" />
+<section id="vs-code-extension-packs">
+<h2><strong>VS Code Extension Packs</strong><a class="headerlink" href="#vs-code-extension-packs" title="Link to this heading">#</a></h2>
+<p>An <strong><a class="reference external" href="https://marketplace.visualstudio.com/search?target=VSCode&amp;amp;category=Extension%20Packs&amp;amp;sortBy=Installs">extension pack</a></strong> is a curated collection of related extensions bundled together to enhance a specific workflow or domain. These packs save time by providing all the essential tools in a single installation.</p>
+<section id="example-microsoft-python-data-science-extension-pack">
+<h3>Example: <strong>Microsoft Python Data Science Extension Pack</strong><a class="headerlink" href="#example-microsoft-python-data-science-extension-pack" title="Link to this heading">#</a></h3>
+<p>The <a class="reference external" href="https://marketplace.visualstudio.com/items?itemName=ms-toolsai.python-ds-extension-pack">Microsoft Python Data Science Extension Pack</a> is a must-have for data scientists and geospatial analysts. It includes the following powerful tools:</p>
+<ul class="simple">
+<li><p><strong>Python</strong>: Core Python support with IntelliSense, debugging, and more.</p></li>
+<li><p><strong>Pylance</strong>: A fast, feature-rich language server for Python.</p></li>
+<li><p><strong>Jupyter</strong>: Seamless Jupyter notebook support within VS Code.</p></li>
+<li><p><strong>Data Wrangler</strong>: Explore, visualize, and clean tabular data</p></li>
+<li><p><strong>GitHub Copilot</strong>: - AI pair programmer</p></li>
+</ul>
+</section>
+<section id="how-to-install">
+<h3>How to Install:<a class="headerlink" href="#how-to-install" title="Link to this heading">#</a></h3>
+<ol class="arabic simple">
+<li><p>Open the Extensions view: <code class="docutils literal notranslate"><span class="pre">Ctrl+Shift+X</span></code>.</p></li>
+<li><p>Search for <strong>Python Data Science</strong>.</p></li>
+<li><p>Click <strong>Install</strong> to add the entire pack to your workspace.</p></li>
+</ol>
+</section>
+<section id="other-useful-extension-packs">
+<h3>Other Useful Extension Packs:<a class="headerlink" href="#other-useful-extension-packs" title="Link to this heading">#</a></h3>
+<ul class="simple">
+<li><p><strong><a class="reference external" href="https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.vscode-remote-extensionpack">Remote Development Pack</a></strong>: Enables development on remote servers, containers, and WSL.</p></li>
+<li><p><strong><a class="reference external" href="https://marketplace.visualstudio.com/items?itemName=waderyan.nodejs-extension-pack">JavaScript/Node.js Extension Pack</a></strong>: Ideal for JavaScript and Node.js developers.</p></li>
+</ul>
+<p>Extension packs are a great way to set up your environment quickly and efficiently for specific tasks or workflows.</p>
+</section>
+</section>
+<hr class="docutils" />
+<section id="additional-useful-extensions">
+<h2><strong>Additional Useful Extensions</strong><a class="headerlink" href="#additional-useful-extensions" title="Link to this heading">#</a></h2>
+<p>Enhance your development experience with the following extensions:</p>
+<ul class="simple">
+<li><p><strong>autoDocstring</strong>: Automatically generate Python docstrings to document your functions.</p></li>
+<li><p><strong>Black Formatter</strong>: Enforce consistent formatting using the Black code style.</p></li>
+<li><p><strong>Code Runner</strong>: Quickly run code snippets directly from the editor.</p></li>
+<li><p><strong>CodeSnap</strong>: Capture beautiful images of your code for sharing or documentation.</p></li>
+<li><p><strong>GistPad</strong>: Manage GitHub Gists without leaving VS Code.</p></li>
+<li><p><strong><a class="reference external" href="https://marketplace.visualstudio.com/items?itemName=GitHub.vscode-github-actions">GitHub Actions</a></strong>: Streamline CI/CD workflows with GitHub Actions integration.</p></li>
+<li><p><strong>GitHub Copilot Chat</strong>: Interactive coding assistant for real-time help.</p></li>
+<li><p><strong>GitHub Pull Requests</strong>: Collaborate on pull requests directly within the editor.</p></li>
+<li><p><strong>GitLens</strong>: Explore Git history and code changes with powerful visualization tools.</p></li>
+<li><p><strong>IntelliCode</strong>: AI-powered recommendations for improving your code.</p></li>
+<li><p><strong>Markdown All in One</strong>: Simplify Markdown editing with preview, shortcuts, and more.</p></li>
+<li><p><strong>Markdown Shortcuts</strong>: Speed up Markdown writing with handy shortcuts.</p></li>
+<li><p><strong>Prettier</strong>: Ensure consistent code style for multiple file types.</p></li>
+<li><p><strong>Pylint</strong>: Analyze Python code for potential errors and enforce PEP8 standards.</p></li>
+<li><p><strong>vscode-icons</strong>: Add colorful icons to make your file tree visually intuitive.</p></li>
+</ul>
+</section>
+<hr class="docutils" />
+<section id="syncing-settings-and-extensions-with-github">
+<h2><strong>Syncing Settings and Extensions with GitHub</strong><a class="headerlink" href="#syncing-settings-and-extensions-with-github" title="Link to this heading">#</a></h2>
+<p>One of the powerful features of VS Code is its ability to sync your settings, extensions, and configurations across multiple devices. This is especially useful if you work on different computers.</p>
+<section id="steps-to-enable-settings-sync">
+<h3>Steps to Enable Settings Sync:<a class="headerlink" href="#steps-to-enable-settings-sync" title="Link to this heading">#</a></h3>
+<ol class="arabic simple">
+<li><p>Open <strong>Command Palette</strong>: Press <code class="docutils literal notranslate"><span class="pre">Ctrl+Shift+P</span></code> and type <code class="docutils literal notranslate"><span class="pre">Preferences:</span> <span class="pre">Turn</span> <span class="pre">on</span> <span class="pre">Settings</span> <span class="pre">Sync</span></code>.</p></li>
+<li><p>Choose your preferred <strong>sign-in method</strong>:</p>
+<ul class="simple">
+<li><p>Log in using your <strong>GitHub</strong> or <strong>Microsoft</strong> account.</p></li>
+</ul>
+</li>
+<li><p>Select what you want to sync:</p>
+<ul class="simple">
+<li><p>Settings</p></li>
+<li><p>Keybindings</p></li>
+<li><p>Extensions</p></li>
+<li><p>UI State</p></li>
+<li><p>Snippets</p></li>
+</ul>
+</li>
+<li><p>Once logged in, VS Code will automatically sync these preferences across any device where you sign in with the same account.</p></li>
+</ol>
+</section>
+<section id="why-use-github-to-sync">
+<h3>Why Use GitHub to Sync?<a class="headerlink" href="#why-use-github-to-sync" title="Link to this heading">#</a></h3>
+<ul class="simple">
+<li><p><strong>Seamless Workflow</strong>: Access your extensions, themes, and custom settings from any device.</p></li>
+<li><p><strong>Backup</strong>: Ensure your setup is never lost, even if you switch machines.</p></li>
+<li><p><strong>Collaboration</strong>: Share your development environment configuration with your team.</p></li>
+</ul>
+<p>To check your sync status or manage sync preferences, visit <code class="docutils literal notranslate"><span class="pre">File</span> <span class="pre">&gt;</span> <span class="pre">Preferences</span> <span class="pre">&gt;</span> <span class="pre">Settings</span> <span class="pre">Sync</span></code>.</p>
+</section>
+</section>
+<hr class="docutils" />
+<section id="essential-keyboard-shortcuts">
+<h2><strong>Essential Keyboard Shortcuts</strong><a class="headerlink" href="#essential-keyboard-shortcuts" title="Link to this heading">#</a></h2>
+<p>Master these shortcuts to boost your productivity in VS Code:</p>
+<section id="navigation">
+<h3>Navigation:<a class="headerlink" href="#navigation" title="Link to this heading">#</a></h3>
+<ol class="arabic simple">
+<li><p><strong>Command Palette:</strong> <code class="docutils literal notranslate"><span class="pre">Ctrl+Shift+P</span></code>
+<em>Access all commands in VS Code.</em></p></li>
+<li><p><strong>Search and open a file:</strong> <code class="docutils literal notranslate"><span class="pre">Ctrl+P</span></code>
+<em>Quickly locate and open files.</em></p></li>
+<li><p><strong>Go to Symbol:</strong> <code class="docutils literal notranslate"><span class="pre">Ctrl+Shift+O</span></code>
+<em>Navigate directly to classes, methods, or functions.</em></p></li>
+</ol>
+</section>
+<section id="editing">
+<h3>Editing:<a class="headerlink" href="#editing" title="Link to this heading">#</a></h3>
+<ol class="arabic simple" start="4">
+<li><p><strong>Move line up or down:</strong> <code class="docutils literal notranslate"><span class="pre">Alt+Arrow</span> <span class="pre">Up/Down</span></code>
+<em>Reorder lines of code easily.</em></p></li>
+<li><p><strong>Cut the entire line:</strong> <code class="docutils literal notranslate"><span class="pre">Ctrl+X</span></code>
+<em>Quickly cut a line without selecting it.</em></p></li>
+<li><p><strong>Edit multiple lines simultaneously:</strong> Hold <strong>Alt</strong> and click.
+<em>Place multiple cursors to edit in multiple places at once.</em></p></li>
+</ol>
+</section>
+<section id="markdown-and-layout">
+<h3>Markdown and Layout:<a class="headerlink" href="#markdown-and-layout" title="Link to this heading">#</a></h3>
+<ol class="arabic simple" start="7">
+<li><p><strong>Markdown preview:</strong> <code class="docutils literal notranslate"><span class="pre">Ctrl+K</span> <span class="pre">V</span></code>
+<em>View the rendered Markdown side-by-side with the editor.</em></p></li>
+<li><p><strong>Zen Mode:</strong> <code class="docutils literal notranslate"><span class="pre">Ctrl+K</span> <span class="pre">Z</span></code> (or via <code class="docutils literal notranslate"><span class="pre">View</span> <span class="pre">&gt;</span> <span class="pre">Appearance</span> <span class="pre">&gt;</span> <span class="pre">Toggle</span> <span class="pre">Zen</span> <span class="pre">Mode</span></code>)
+<em>Eliminate distractions with a full-screen editing experience.</em></p></li>
+<li><p><strong>Split view:</strong> <code class="docutils literal notranslate"><span class="pre">View</span> <span class="pre">&gt;</span> <span class="pre">Editor</span> <span class="pre">Layout</span> <span class="pre">&gt;</span> <span class="pre">Split</span> <span class="pre">Up</span></code>
+<em>Work on multiple files or split the same file vertically.</em></p></li>
+</ol>
+</section>
+<section id="other">
+<h3>Other:<a class="headerlink" href="#other" title="Link to this heading">#</a></h3>
+<ol class="arabic simple" start="10">
+<li><p><strong>Go to line number:</strong> <code class="docutils literal notranslate"><span class="pre">Ctrl+G</span></code>
+<em>Jump to a specific line in your code.</em></p></li>
+<li><p><strong>Select the entire line:</strong> Triple-click anywhere on the line.</p></li>
+</ol>
+</section>
+</section>
+<hr class="docutils" />
+<section id="references-for-keyboard-shortcuts">
+<h2><strong>References for Keyboard Shortcuts</strong><a class="headerlink" href="#references-for-keyboard-shortcuts" title="Link to this heading">#</a></h2>
+<p>Expand your efficiency by learning more shortcuts:</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://code.visualstudio.com/shortcuts/keyboard-shortcuts-windows.pdf">Visual Studio Code Keyboard Shortcuts for Windows</a></p></li>
+<li><p><a class="reference external" href="https://code.visualstudio.com/shortcuts/keyboard-shortcuts-macos.pdf">Visual Studio Code Keyboard Shortcuts for macOS</a></p></li>
+</ul>
+</section>
+<hr class="docutils" />
+<section id="tips-for-getting-started">
+<h2><strong>Tips for Getting Started</strong><a class="headerlink" href="#tips-for-getting-started" title="Link to this heading">#</a></h2>
+<ul class="simple">
+<li><p><strong>Install Extensions</strong>: Open the Extensions view (<code class="docutils literal notranslate"><span class="pre">Ctrl+Shift+X</span></code>) and search for the ones listed above.</p></li>
+<li><p><strong>Customize Your Setup</strong>: Change themes, fonts, and settings to suit your workflow via <code class="docutils literal notranslate"><span class="pre">File</span> <span class="pre">&gt;</span> <span class="pre">Preferences</span> <span class="pre">&gt;</span> <span class="pre">Settings</span></code>.</p></li>
+<li><p><strong>Sync Settings</strong>: Use your <strong>GitHub account</strong> to sync settings and extensions across devices.</p></li>
+<li><p><strong>Explore Themes</strong>: Choose a theme that enhances your productivity, such as <strong>Dark+</strong> or <strong>Dracula</strong>.</p></li>
+</ul>
+<p>With VS Code as your primary editor, you’ll have a powerful and flexible environment for geospatial software development. Explore its features, experiment with extensions, and take advantage of the keyboard shortcuts to streamline your workflow!</p>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "giswqs/geog-510",
+            ref: "main",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./book/software"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="overview.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Overview</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="git.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Git</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#installation"><strong>Installation</strong></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#important-extensions-for-geospatial-development"><strong>Important Extensions for Geospatial Development</strong></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#vs-code-extension-packs"><strong>VS Code Extension Packs</strong></a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#example-microsoft-python-data-science-extension-pack">Example: <strong>Microsoft Python Data Science Extension Pack</strong></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#how-to-install">How to Install:</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#other-useful-extension-packs">Other Useful Extension Packs:</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#additional-useful-extensions"><strong>Additional Useful Extensions</strong></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#syncing-settings-and-extensions-with-github"><strong>Syncing Settings and Extensions with GitHub</strong></a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#steps-to-enable-settings-sync">Steps to Enable Settings Sync:</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#why-use-github-to-sync">Why Use GitHub to Sync?</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#essential-keyboard-shortcuts"><strong>Essential Keyboard Shortcuts</strong></a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#navigation">Navigation:</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#editing">Editing:</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#markdown-and-layout">Markdown and Layout:</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#other">Other:</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#references-for-keyboard-shortcuts"><strong>References for Keyboard Shortcuts</strong></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#tips-for-getting-started"><strong>Tips for Getting Started</strong></a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Qiusheng Wu
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2025.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="../../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>
